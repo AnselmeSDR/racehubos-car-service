@@ -5,8 +5,10 @@ A RaceHubOS add-on (id `car-service`). Read the add-on guide first and follow it
 ## Layout
 
 - `server/`: `index.js` is the entry. `usage.js` (pure: laps, distance, due) and `history.js` (own database: migrations, services) feed `carService.js`, which uses `ctx.prisma`, `ctx.extra` and `ctx.openDatabase`.
-- `web/`: `index.jsx` is the entry (route `''`, nav entry). `ServicePage` → `CarServiceRow`, `HistoryDialog`. `ServiceBadge` is shown by the override.
-- `overrides/packages/frontend/src/components/car/CarIdentity.jsx` wraps the core's car identity with `@base` and adds the badge.
+- `web/`: `index.jsx` is the entry (route `''`, nav entry). `ServicePage` → `CarServiceRow`, `HistoryDialog`. `ServiceBadge` reads `useServiceStatus`, a store shared by every badge on screen: one request for a whole list, read again on `car-service:updated`.
+- Overrides (`overrides/packages/frontend/src/components/car/`), both wrapping `@base`:
+  - `CarIdentity.jsx` adds the badge to the car's profile, as a link to the service page;
+  - `carColumns.jsx` adds a Service column to the cars list, before the edit column. In a row, the badge is no link, because clicking the row opens the car.
 - `web/locales/{en,fr,de}.json`: the same keys in each language (`locales.test.js` checks this).
 - The socket event is `car-service:updated` `{ carIds }`. It is sent after an interval change, a service, and each finished session.
 

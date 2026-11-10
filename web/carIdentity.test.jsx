@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react'
+import { act, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import i18n from '@/i18n'
 import { routeFetch } from '@/test/helpers'
@@ -26,9 +26,9 @@ let status, fetchMock
 
 beforeAll(() => i18n.changeLanguage('en'))
 beforeEach(() => {
-  status = { remaining: 40, due: false }
+  status = { car: { id: 'c1' }, remaining: 40, due: false }
   fetchMock = routeFetch({
-    [`${API}/cars/c1`]: () => ({ success: true, data: status }),
+    [`${API}/cars`]: () => ({ success: true, data: [status, { car: { id: 'c2' }, remaining: 0, due: true }] }),
   })
 })
 afterEach(() => vi.unstubAllGlobals())
@@ -43,15 +43,14 @@ const show = () =>
 test("the car's profile keeps its identity and shows the laps left before its service", async () => {
   show()
   expect(screen.getByTestId('car-identity')).toHaveTextContent('Ford GT')
-  const badge = await screen.findByTestId('car-service-badge')
-  expect(badge).toHaveTextContent('Service in 40 laps')
-  expect(badge).toHaveAttribute('href', '/addons/car-service')
+  await screen.findByText('Service in 40 laps')
+  expect(screen.getByTestId('car-service-badge')).toHaveAttribute('href', '/addons/car-service')
 })
 
 test('a car due for service says so', async () => {
-  status = { remaining: 0, due: true }
+  status = { ...status, remaining: 0, due: true }
   show()
-  expect(await screen.findByTestId('car-service-badge')).toHaveTextContent('Service due')
+  expect(await screen.findByText('Service due')).toBeInTheDocument()
 })
 
 test('read again when the server says this car changed, not for another one', async () => {
@@ -62,17 +61,14 @@ test('read again when the server says this car changed, not for another one', as
 
   await act(async () => socket.send('car-service:updated', { carIds: ['c9'] }))
   expect(reads()).toBe(before)
-  status = { remaining: 1, due: false }
+  status = { ...status, remaining: 1 }
   await act(async () => socket.send('car-service:updated', { carIds: ['c1'] }))
   expect(screen.getByTestId('car-service-badge')).toHaveTextContent('Service in 1 lap')
 })
 
 test('nothing when the status cannot be read', async () => {
-  fetchMock = routeFetch({
-    [`${API}/cars/c1`]: { success: false, error: 'boom' },
-  })
+  fetchMock = routeFetch({ [`${API}/cars`]: { success: false, error: 'boom' } })
   show()
-  await act(async () => {})
-  expect(screen.queryByTestId('car-service-badge')).not.toBeInTheDocument()
+  await waitFor(() => expect(screen.queryByTestId('car-service-badge')).not.toBeInTheDocument())
   expect(screen.getByTestId('car-identity')).toBeInTheDocument()
 })

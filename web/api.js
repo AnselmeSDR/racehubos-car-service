@@ -18,7 +18,6 @@ const send = (method, body) => ({
 })
 
 export const getStatuses = () => call('/cars')
-export const getStatus = (carId) => call(`/cars/${carId}`)
 export const getHistory = (carId) => call(`/cars/${carId}/history`)
 export const saveInterval = (carId, laps) => call(`/cars/${carId}/interval`, send('PUT', { laps }))
 export const markServiced = (carId) => call(`/cars/${carId}/service`, send('POST'))

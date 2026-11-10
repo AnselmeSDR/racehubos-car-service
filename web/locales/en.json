@@ -25,5 +25,6 @@
   "entry_one": "after {{count}} lap · {{distance}}",
   "entry_other": "after {{count}} laps · {{distance}}",
   "lapsLeft_one": "Service in {{count}} lap",
-  "lapsLeft_other": "Service in {{count}} laps"
+  "lapsLeft_other": "Service in {{count}} laps",
+  "listColumn": "Service"
 }

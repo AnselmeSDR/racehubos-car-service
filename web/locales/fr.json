@@ -25,5 +25,6 @@
   "entry_one": "après {{count}} tour · {{distance}}",
   "entry_other": "après {{count}} tours · {{distance}}",
   "lapsLeft_one": "Entretien dans {{count}} tour",
-  "lapsLeft_other": "Entretien dans {{count}} tours"
+  "lapsLeft_other": "Entretien dans {{count}} tours",
+  "listColumn": "Entretien"
 }

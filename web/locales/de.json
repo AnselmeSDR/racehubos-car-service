@@ -25,5 +25,6 @@
   "entry_one": "nach {{count}} Runde · {{distance}}",
   "entry_other": "nach {{count}} Runden · {{distance}}",
   "lapsLeft_one": "Wartung in {{count}} Runde",
-  "lapsLeft_other": "Wartung in {{count}} Runden"
+  "lapsLeft_other": "Wartung in {{count}} Runden",
+  "listColumn": "Wartung"
 }

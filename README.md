@@ -5,7 +5,7 @@ A [RaceHubOS](https://gitlab.com/AnselmeSDR/RaceHubOS) add-on that tells you whe
 - **Car service page** in the menu: each car's laps and distance since its last service, the most worn first. Distance is laps × track length.
 - **An interval per car**, every 300 laps by default.
 - **Service done** records the service and keeps a history per car.
-- **A badge on the car page**: _Service due_, or the laps left.
+- **A badge on the car page** and **a Service column in the cars list**: _Service due_, or the laps left.
 - **At the end of each session**, the page updates live and the server log names the cars that are due.
 
 English, French and German.
