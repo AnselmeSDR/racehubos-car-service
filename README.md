@@ -1,6 +1,6 @@
 # RaceHubOS car service
 
-A [RaceHubOS](https://gitlab.com/AnselmeSDR/RaceHubOS) add-on that tells you when a car needs servicing: braids, tyres, a drop of oil.
+A [RaceHubOS](https://github.com/AnselmeSDR/RaceHubOS) add-on that tells you when a car needs servicing: braids, tyres, a drop of oil.
 
 - **Car service page** in the menu: each car's laps and distance since its last service, the most worn first. Distance is laps × track length.
 - **An interval per car**, every 300 laps by default.
@@ -12,7 +12,7 @@ English, French and German.
 
 ## Install
 
-On the RaceHubOS **Add-ons** page, **Install from a link**: `https://gitlab.com/AnselmeSDR/racehubos-car-service`.
+On the RaceHubOS **Add-ons** page, **Install from a link**: `https://github.com/AnselmeSDR/racehubos-car-service`.
 
 It needs a RaceHubOS version with add-ons ([docs/ADDONS.md](https://github.com/AnselmeSDR/RaceHubOS/blob/main/docs/ADDONS.md)).
 
@@ -26,7 +26,7 @@ It needs a RaceHubOS version with add-ons ([docs/ADDONS.md](https://github.com/A
 Clone it next to a RaceHubOS checkout and link it into the core's add-ons:
 
 ```bash
-git clone git@gitlab.com:AnselmeSDR/racehubos-car-service.git
+git clone https://github.com/AnselmeSDR/racehubos-car-service.git
 ln -s "$PWD/racehubos-car-service" racehubos/addons/car-service
 cd racehubos && npm run dev
 ```
