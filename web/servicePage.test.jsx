@@ -204,6 +204,18 @@ test('loading, then no cars, or the error', async () => {
   unmount()
 
   fetchMock = routeFetch({ [`${API}/cars`]: failure('offline') })
-  render(<ServicePage />)
+  const offline = render(<ServicePage />)
   expect(await screen.findByRole('alert')).toHaveTextContent('The cars could not be read: offline')
+  offline.unmount()
+
+  // The backend restarting: the dev proxy answers 502 without a body
+  const noBody = async () => {
+    throw new SyntaxError('Unexpected end of JSON input')
+  }
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async () => ({ ok: false, status: 502, json: noBody }))
+  )
+  render(<ServicePage />)
+  expect(await screen.findByRole('alert')).toHaveTextContent('The cars could not be read: HTTP 502')
 })

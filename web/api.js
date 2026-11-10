@@ -5,8 +5,9 @@ export const UPDATED_EVENT = 'car-service:updated'
 
 async function call(path, init) {
   const res = await fetch(BASE + path, init)
-  const body = await res.json()
-  if (!body.success) throw new Error(body.error)
+  // No JSON when the backend is down or restarting: the proxy answers 502 without a body
+  const body = await res.json().catch(() => ({}))
+  if (!res.ok || !body.success) throw new Error(body.error || `HTTP ${res.status}`)
   return body.data
 }
 

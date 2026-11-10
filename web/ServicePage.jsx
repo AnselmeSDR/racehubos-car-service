@@ -8,6 +8,9 @@ import HistoryDialog from './HistoryDialog'
 import { carName } from './format'
 import { useCarStatuses } from './useCarStatuses'
 
+// The layout gives a page no padding: the core pages start like this too
+const Page = ({ children }) => <div className="p-4 space-y-4">{children}</div>
+
 /** Every car's use since its last service, the most worn first, and the cars due. */
 export default function ServicePage() {
   const { t } = useTranslation('car-service')
@@ -16,17 +19,24 @@ export default function ServicePage() {
 
   if (error) {
     return (
-      <p role="alert" className="text-sm text-destructive">
-        {t('loadError', { error })}
-      </p>
+      <Page>
+        <p role="alert" className="text-sm text-destructive">
+          {t('loadError', { error })}
+        </p>
+      </Page>
     )
   }
-  if (!statuses) return <p className="text-sm text-muted-foreground">{t('loading')}</p>
-  if (statuses.length === 0) return <p className="text-sm text-muted-foreground">{t('noCars')}</p>
+  if (!statuses || statuses.length === 0) {
+    return (
+      <Page>
+        <p className="text-sm text-muted-foreground">{t(statuses ? 'noCars' : 'loading')}</p>
+      </Page>
+    )
+  }
 
   const due = statuses.filter((status) => status.due)
   return (
-    <div className="space-y-4">
+    <Page>
       {due.length > 0 && (
         <div
           role="status"
@@ -41,7 +51,7 @@ export default function ServicePage() {
           </span>
         </div>
       )}
-      <Card>
+      <Card className="py-0">
         <CardContent className="p-0">
           <Table>
             <TableHeader>
@@ -68,6 +78,6 @@ export default function ServicePage() {
         </CardContent>
       </Card>
       <HistoryDialog car={historyCar} onClose={() => setHistoryCar(null)} />
-    </div>
+    </Page>
   )
 }

@@ -41,13 +41,13 @@ export default function CarServiceRow({ status, onChanged, onHistory }) {
 
   return (
     <TableRow data-testid={`car-service-${car.id}`}>
-      <TableCell>
+      <TableCell className="whitespace-normal min-w-36">
         <span className="flex items-center gap-2 font-medium">
           <span className="size-3 rounded-full shrink-0" style={{ backgroundColor: carColor(car) }} />
           {carName(car)}
         </span>
       </TableCell>
-      <TableCell className="min-w-40">
+      <TableCell className="min-w-36">
         <div className="text-sm tabular-nums">{t('lapsOf', { laps, interval: intervalLaps })}</div>
         <div className="h-1.5 mt-1 bg-muted rounded-full overflow-hidden">
           <div
@@ -70,7 +70,7 @@ export default function CarServiceRow({ status, onChanged, onHistory }) {
           defaultValue={intervalLaps}
           onBlur={changeInterval}
           aria-label={t('intervalOf', { car: carName(car) })}
-          className="w-24 h-8"
+          className="w-20 h-8"
         />
       </TableCell>
       <TableCell className="text-sm text-muted-foreground">
@@ -82,7 +82,7 @@ export default function CarServiceRow({ status, onChanged, onHistory }) {
           <Button size="sm" variant="outline" disabled={busy} onClick={() => run(() => markServiced(car.id))}>
             <Wrench className="size-3.5" /> {t('markServiced')}
           </Button>
-          <Button size="sm" variant="ghost" onClick={onHistory} aria-label={t('historyOf', { car: carName(car) })}>
+          <Button size="icon-sm" variant="ghost" onClick={onHistory} aria-label={t('historyOf', { car: carName(car) })}>
             <History className="size-3.5" />
           </Button>
         </div>
