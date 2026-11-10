@@ -10,7 +10,7 @@
     "fr": "Tours et distance de chaque voiture depuis son dernier entretien, un intervalle par voiture, et les voitures à entretenir.",
     "de": "Runden und Strecke jedes Fahrzeugs seit der letzten Wartung, ein Intervall pro Fahrzeug und die fälligen Fahrzeuge."
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Anselme SDR",
   "license": "AGPL-3.0-or-later",
   "repository": "https://gitlab.com/AnselmeSDR/racehubos-car-service"
