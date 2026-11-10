@@ -1,0 +1,13 @@
+{
+  "name": "racehubos-car-service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "RaceHubOS add-on: car service intervals and history",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "test": "npm run test:server && npm run test:web",
+    "test:server": "node --test --experimental-test-coverage --test-coverage-include='server/**' 'test/**/*.test.js'",
+    "test:web": "node test/web.js"
+  }
+}

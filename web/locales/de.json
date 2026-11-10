@@ -1,0 +1,29 @@
+{
+  "nav": "Wartung",
+  "loading": "Wird geladen…",
+  "loadError": "Die Fahrzeuge konnten nicht gelesen werden: {{error}}",
+  "noCars": "Noch keine Fahrzeuge.",
+  "columns": {
+    "car": "Fahrzeug",
+    "laps": "Runden seit Wartung",
+    "distance": "Strecke",
+    "interval": "Alle (Runden)",
+    "lastService": "Letzte Wartung"
+  },
+  "lapsOf": "{{laps}} / {{interval}} Runden",
+  "withoutLength_one": "{{count}} Runde auf einer Strecke ohne Länge",
+  "withoutLength_other": "{{count}} Runden auf Strecken ohne Länge",
+  "intervalOf": "Wartungsintervall von {{car}}, in Runden",
+  "never": "Nie",
+  "due": "Wartung fällig",
+  "dueBanner_one": "1 Fahrzeug muss gewartet werden: {{cars}}",
+  "dueBanner_other": "{{count}} Fahrzeuge müssen gewartet werden: {{cars}}",
+  "markServiced": "Wartung erledigt",
+  "historyOf": "Wartungsverlauf von {{car}}",
+  "historyTitle": "Wartungen von {{car}}",
+  "historyEmpty": "Noch keine Wartung erfasst.",
+  "entry_one": "nach {{count}} Runde · {{distance}}",
+  "entry_other": "nach {{count}} Runden · {{distance}}",
+  "lapsLeft_one": "Wartung in {{count}} Runde",
+  "lapsLeft_other": "Wartung in {{count}} Runden"
+}

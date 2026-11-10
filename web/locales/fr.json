@@ -1,0 +1,29 @@
+{
+  "nav": "Entretien",
+  "loading": "Chargement…",
+  "loadError": "Impossible de lire les voitures : {{error}}",
+  "noCars": "Aucune voiture pour l'instant.",
+  "columns": {
+    "car": "Voiture",
+    "laps": "Tours depuis l'entretien",
+    "distance": "Distance",
+    "interval": "Tous les (tours)",
+    "lastService": "Dernier entretien"
+  },
+  "lapsOf": "{{laps}} / {{interval}} tours",
+  "withoutLength_one": "{{count}} tour sur un circuit sans longueur",
+  "withoutLength_other": "{{count}} tours sur des circuits sans longueur",
+  "intervalOf": "Intervalle d'entretien de {{car}}, en tours",
+  "never": "Jamais",
+  "due": "Entretien dû",
+  "dueBanner_one": "1 voiture est à entretenir : {{cars}}",
+  "dueBanner_other": "{{count}} voitures sont à entretenir : {{cars}}",
+  "markServiced": "Entretien fait",
+  "historyOf": "Historique d'entretien de {{car}}",
+  "historyTitle": "Entretiens de {{car}}",
+  "historyEmpty": "Aucun entretien enregistré.",
+  "entry_one": "après {{count}} tour · {{distance}}",
+  "entry_other": "après {{count}} tours · {{distance}}",
+  "lapsLeft_one": "Entretien dans {{count}} tour",
+  "lapsLeft_other": "Entretien dans {{count}} tours"
+}

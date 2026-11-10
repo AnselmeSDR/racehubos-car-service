@@ -1,0 +1,29 @@
+{
+  "nav": "Car service",
+  "loading": "Loading…",
+  "loadError": "The cars could not be read: {{error}}",
+  "noCars": "No cars yet.",
+  "columns": {
+    "car": "Car",
+    "laps": "Laps since service",
+    "distance": "Distance",
+    "interval": "Every (laps)",
+    "lastService": "Last service"
+  },
+  "lapsOf": "{{laps}} / {{interval}} laps",
+  "withoutLength_one": "{{count}} lap on a track without a length",
+  "withoutLength_other": "{{count}} laps on tracks without a length",
+  "intervalOf": "Service interval of {{car}}, in laps",
+  "never": "Never",
+  "due": "Service due",
+  "dueBanner_one": "1 car is due for service: {{cars}}",
+  "dueBanner_other": "{{count}} cars are due for service: {{cars}}",
+  "markServiced": "Service done",
+  "historyOf": "Service history of {{car}}",
+  "historyTitle": "Services of {{car}}",
+  "historyEmpty": "No service recorded yet.",
+  "entry_one": "after {{count}} lap · {{distance}}",
+  "entry_other": "after {{count}} laps · {{distance}}",
+  "lapsLeft_one": "Service in {{count}} lap",
+  "lapsLeft_other": "Service in {{count}} laps"
+}
